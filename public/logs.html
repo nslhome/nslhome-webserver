@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="NslHomeApp">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Home</title>
+        <link rel="stylesheet" href="css/app.css"/>
+        <link href="lib/bootstrap2/bootstrap.min.css" rel="stylesheet">
+        <style>
+
+            .log {
+                border: 1px solid black;
+                margin: 3px;
+                padding: 2px;
+            }
+
+                .log .ts {
+                    background: darkgrey;
+                    color: white;
+                    float: left;
+                }
+
+                .log .msg {
+                    color: grey;
+                }
+
+        </style>
+    </head>
+    <body ng-controller="LogsCtrl">
+
+        <div class="container-fluid ng-cloak">
+
+            <div ng-repeat="log in logs" ng-switch="log.meta.source">
+                <div ng-switch-when="StaplesConnectHub" style="display: none"></div>
+                <div ng-switch-when="staples-provider" style="display: none"></div>
+                <div ng-switch-when="provider-manager" class="log" style="background: lightblue">
+                    <div class="ts" ng-bind="log.timestamp"></div>
+                    <div class="zmsg" ng-bind="showJson(log.meta.body)"></div>
+                </div>
+                <div ng-switch-default class="log">
+                    <div class="ts" ng-bind="log.timestamp"></div>
+                    <div ng-bind="showJson(log)"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-resource/angular-resource.js"></script>
+        <script src="vendor/angular-tree-control/angular-tree-control.js"></script>
+
+        <script src="js/app-main.js"></script>
+        <script src="js/controllers/LogsCtrl.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
+</html>
