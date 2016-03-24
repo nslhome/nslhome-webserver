@@ -62,15 +62,23 @@ var startWebserver = function(config) {
     server.listen(config.port);
 };
 
-core.Mongo.open(function(err, db) {
-    if (err)
-        return console.error(err);
-
-    db.configuration.findOne({_id: "webserver.general"}, function(err, result) {
+var main = function() {
+    core.Mongo.open(function (err, db) {
         if (err)
             return console.error(err);
 
-        if (result)
-            startWebserver(result);
+        db.configuration.findOne({_id: "webserver.general"}, function (err, result) {
+            if (err)
+                return console.error(err);
+
+            if (result)
+                startWebserver(result);
+        });
     });
-});
+};
+
+module.exports = exports = main;
+
+if (require.main === module) {
+    main();
+}
