@@ -1,6 +1,6 @@
 angular.module('NslHomeApp').factory('socket', function ($rootScope, $location) {
     //console.log($location);
-    var socketUrl = $location.protocol() + "://" + $location.host() + ":7000";
+    var socketUrl = $location.protocol() + "://" + $location.host() + ":7000";  //TODO: this port number should be based on the server config
     var socket = io.connect(socketUrl);
     return {
         on: function (eventName, callback) {

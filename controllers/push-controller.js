@@ -31,9 +31,7 @@ core.Mongo.open(function(err, db) {
 
     configuration.findOne({_id: saveState._id}, function(err, result) {
         if (err)
-            console.log(err);
-
-        console.log(result);
+            return console.error(err);
 
         if (result)
             saveState = result
@@ -41,9 +39,7 @@ core.Mongo.open(function(err, db) {
 
     configuration.findOne({_id: GLOBAL_OPTIONS._id}, function(err, result) {
         if (err)
-            console.log(err);
-
-        console.log(result);
+            return console.error(err);
 
         if (result)
             GLOBAL_OPTIONS = result
