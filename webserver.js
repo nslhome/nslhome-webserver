@@ -4,6 +4,9 @@ var app = express();
 var path = require('path');
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server, { log: false });
+var webpack = require('webpack');
+var webpackMiddleware = require('webpack-dev-middleware');
+var webpackConfig = require('./webpack.config.js');
 
 var core = require('nslhome-core');
 var deviceManager = core.DeviceMangager;
@@ -20,8 +23,12 @@ var startWebserver = function(config) {
 
     app.use(express.basicAuth(config.adminUsername, config.adminPassword));
     app.use(express.bodyParser());
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, 'public2')));
 
+    var compiler = webpack(webpackConfig);
+    app.use(webpackMiddleware(compiler, {
+        publicPath: webpackConfig.output.publicPath
+    }));
 
     // socket.io handler
     io.sockets.on('connection', function (socket) {
