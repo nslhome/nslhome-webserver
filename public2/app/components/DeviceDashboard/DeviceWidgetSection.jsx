@@ -1,6 +1,6 @@
 var React = require('react');
-var LightWidget = require('./LightWidget.jsx');
-var SensorWidget = require('./SensorWidget.jsx');
+var LightWidget = require('../Common/LightWidget.jsx');
+var SensorWidget = require('../Common/SensorWidget.jsx');
 
 module.exports = React.createClass({
     propTypes: {

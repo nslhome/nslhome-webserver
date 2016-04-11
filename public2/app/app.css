@@ -15,3 +15,62 @@ body { padding-bottom: 70px;}
 .logo-home {
     color: #d18b5d;
 }
+
+.deviceHistory * {
+    line-height: 20px;
+}
+
+.deviceHistory .hourHeading {
+    text-align: center;
+    font-size: 8pt;
+}
+
+.deviceHistory .dayLabel {
+    text-align: right;
+    width: 200px;
+    font-size: 8pt;
+    padding-right: 10px;
+}
+
+.deviceHistory .hourCell {
+    text-align: center;
+    width: 25px;
+    border: 1px solid lightgray;
+}
+
+.deviceHistory .hourBox {
+    width: 10px;
+    height: 10px;
+    background: red;
+    margin: 0 auto;
+}
+
+.deviceHistory td.daylight {
+    background: #ffffe6 /*#ffff4f;*/
+}
+
+.deviceHistory td.nighttime {
+    background: #d8e7f3 /*#2a6496*/;
+    zcolor: white;
+}
+.deviceHistory tr.weekend td.daylight {
+    background: #ffffc1 /*#a6a63a*/;
+}
+
+.deviceHistory tr.weekend td.nighttime {
+    background: #bcd6eb /*#183d5d*/;
+}
+
+.deviceList .leftColumn {
+    overflow-y: scroll;
+    position: absolute;
+    top: 50px;
+    bottom: 10px;
+    width: 350px;
+}
+
+.deviceList .rightColumn {
+    border: 0px solid blue;
+    margin: 10px 10px 10px 360px;
+    padding: 10px;
+}
