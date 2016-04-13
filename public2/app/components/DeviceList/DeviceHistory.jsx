@@ -107,8 +107,6 @@ var analyseLogs = function(logs) {
     return matrix;
 };
 
-var lastDeviceId = null;
-
 module.exports = React.createClass({
     propTypes: {
         deviceId: React.PropTypes.string.isRequired
@@ -118,16 +116,16 @@ module.exports = React.createClass({
 
     getInitialState: function() {
         return {
-            matrix: []
+            matrix: [],
+            lastDeviceId: null
         }
     },
 
     updateLogs: function(deviceId) {
         var me = this;
-        if (deviceId != null && deviceId != lastDeviceId) {
+        if (deviceId != null && deviceId != this.state.lastDeviceId) {
             console.log(" Fetching logs for " + this.props.deviceId);
-            lastDeviceId = deviceId;
-            me.setState({matrix: []});
+            me.setState({matrix: [], lastDeviceId: deviceId});
 
             $.get('/logs/device/' + this.props.deviceId, function (data) {
                 console.log("  Done");

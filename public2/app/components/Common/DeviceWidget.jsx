@@ -15,7 +15,6 @@ module.exports = React.createClass({
         setPower: React.PropTypes.func.isRequired
     },
     render: function() {
-        console.log(this.props.device);
         switch (this.props.device.type) {
             case "light":
                 return <LightWidget id={this.props.device.id} name={this.props.device.name} powerState={this.props.device.powerState} setPower={this.props.setPower}/>
