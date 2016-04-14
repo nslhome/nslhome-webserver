@@ -23,7 +23,7 @@ var startWebserver = function(config) {
 
     app.use(express.basicAuth(config.adminUsername, config.adminPassword));
     app.use(express.bodyParser());
-    app.use(express.static(path.join(__dirname, 'public2')));
+    app.use(express.static(path.join(__dirname, 'public')));
 
     var compiler = webpack(webpackConfig);
     app.use(webpackMiddleware(compiler, {

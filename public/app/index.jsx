@@ -13,6 +13,6 @@ ReactDOM.render((
         <Route path="/" component={DeviceDashboardPage} />
         <Route path="/devices" component={DeviceListPage} />
         <Route path="/cameras" component={CamerasPage} />
-        <Route path="/test" component={TestPage} />
+        {/*<Route path="/test" component={TestPage} />*/}
     </Router>
 ), document.getElementById('root'));

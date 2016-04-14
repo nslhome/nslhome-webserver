@@ -1,10 +1,9 @@
-<!doctype html>
-<html lang="en" ng-app="NslHomeApp">
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Home</title>
-        <link rel="stylesheet" href="css/app.css"/>
+        <link rel="stylesheet" href="app/app.css"/>
         <link href="lib/bootstrap2/bootstrap.min.css" rel="stylesheet">
         <style>
 
@@ -105,72 +104,13 @@
             }
 
         </style>
-    </head>
-    <body ng-controller="MainCtrl">
-
-        <div class="navbar navbar-static-top navbar-inverse">
-            <div class="navbar-inner">
-                <a class="brand" href="#"><span class="logo-nsl">nsl</span><span class="logo-home">home</span></a>
-
-                <ul class="nav">
-                    <li class="active"><a href="index.html">Dashboard</a></li>
-                    <li><a href="devices.html">Devices</a></li>
-                    <li><a href="cameras.html">Cameras</a></li>
-                </ul>
-
-                <p ng-repeat="device in thermostats" class="navbar-text pull-right">{{device.name}}: <b>{{device.temp}}&deg;</b></p>
-            </div>
-        </div>
-
-        <div class="container-fluid ng-cloak">
-
-            <div class="camera-list camera-list">
-                <div class="device-list-name">Cameras</div>
-
-                <div ng-repeat="device in cameras">
-                    <div class="camera"><div class="camera-name">{{device.name}}</div><div class="camera"><img src="{{device.jpgUrl}}?t={{dt}}" /></div></div>
-                </div>
-
-            </div>
-
-            <div class="device-list">
-                <div class="device-list-name">Lights</div>
-
-                <div ng-repeat="device in lights" ng-switch="device.lightType">
-                    <div ng-switch-when="basic" class="device"><a class="btn" ng-click="togglePower(device)"><div class="device-name">{{device.name}}</div><div class="{{device.powerState ? 'light-on' : 'light-off'}}">{{device.powerState ? "ON" : "off"}}</div></a></div>
-                    <div ng-switch-when="dimmable" class="device"><a class="btn" ng-click="togglePower(device)"><div class="device-name">{{device.name}}</div><div class="{{device.powerState ? 'light-on' : 'light-off'}}">{{device.powerState ? "ON" : "off"}}</div></a></div>
-                    <div ng-switch-when="hue" class="device"><a class="btn" ng-click="togglePower(device)"><div class="device-name">{{device.name}}</div><div class="{{device.powerState ? 'light-on' : 'light-off'}}">{{device.powerState ? "ON" : "off"}}</div></a></div>
-                </div>
-
-                <br style="clear: left;" />
-            </div>
-
-            <div class="device-list">
-                <div class="device-list-name">Sensors</div>
-
-                <div ng-repeat="device in sensors" ng-switch="device.sensorType">
-                    <div ng-switch-when="motion" class="device"><div class="device-name">{{device.name}}</div><div class="{{device.triggerState ? 'sensor-on' : 'sensor-off'}}">{{device.triggerState ? "MOTION" : "no motion"}}</div></div>
-                    <div ng-switch-when="water" class="device"><div class="device-name">{{device.name}}</div><div class="{{device.triggerState ? 'sensor-on' : 'sensor-off'}}">{{device.triggerState ? "WET" : "dry"}}</div></div>
-                    <div ng-switch-when="door" class="device"><div class="device-name">{{device.name}}</div><div class="{{device.triggerState ? 'sensor-on' : 'sensor-off'}}">{{device.triggerState ? "OPEN" : "closed"}}</div></div>
-                    <div ng-switch-default class="device"><div class="device-name">{{device.name}}</div><div class="{{device.triggerState ? 'sensor-on' : 'sensor-off'}}">{{device.triggerState ? "ACTIVE" : "inactive"}}</div></div>
-                </div>
-
-                <br style="clear: left;" />
-            </div>
-
-
-        </div>
 
         <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
 
-        <script src="vendor/angular/angular.js"></script>
-        <script src="vendor/angular-resource/angular-resource.js"></script>
-        <script src="vendor/angular-tree-control/angular-tree-control.js"></script>
-
-        <script src="js/app-main.js"></script>
-        <script src="js/controllers/MainCtrl.js"></script>
-        <script src="js/services/socket.js"></script>
-        <script src="js/filters.js"></script>
-        <script src="js/directives.js"></script>
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="dist/bundle.js"></script>
     </body>
 </html>
