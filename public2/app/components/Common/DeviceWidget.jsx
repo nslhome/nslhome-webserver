@@ -1,6 +1,7 @@
 var React = require('react');
 var LightWidget = require('./LightWidget.jsx');
 var SensorWidget = require('./SensorWidget.jsx');
+var CameraWidget = require('./CameraWidget.jsx');
 
 module.exports = React.createClass({
     propTypes: {
@@ -20,6 +21,8 @@ module.exports = React.createClass({
                 return <LightWidget id={this.props.device.id} name={this.props.device.name} powerState={this.props.device.powerState} setPower={this.props.setPower}/>
             case "binarysensor":
                 return <SensorWidget id={this.props.device.id} name={this.props.device.name} triggerState={this.props.device.triggerState} sensorType={this.props.device.sensorType}/>
+            case "camera":
+                return <CameraWidget camera={this.props.device} />
             default:
                 return <div className="device">{this.props.device.name}</div>
         }

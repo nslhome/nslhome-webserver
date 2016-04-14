@@ -1,4 +1,5 @@
 var React = require('react');
+var CameraWidget = require('../Common/CameraWidget.jsx');
 
 module.exports = React.createClass({
     propTypes: {
@@ -8,7 +9,7 @@ module.exports = React.createClass({
     render: function() {
 
         var cameras = this.props.cameras.map(function (x) {
-            return <div key={x.id} className="camera"><div className="camera-name">{x.name}</div><img src={x.jpgUrl} /></div>
+            return <CameraWidget key={x.id} camera={x} />
         });
 
         return (

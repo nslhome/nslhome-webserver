@@ -87,3 +87,17 @@ body { padding-bottom: 70px;}
     margin-left: 25px;
     margin-right: 8px;
 }
+
+.cameras .camera {
+    width: 600px;
+    margin: 2px;
+}
+
+.cameras .camera-name {
+    font-size: 10pt;
+    color: white;
+    z-index: 10;
+    position: absolute;
+    margin-left: 7px;
+    margin-top: 3px;
+}
