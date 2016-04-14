@@ -14,9 +14,13 @@ module.exports = React.createClass({
     componentDidMount: function() {
         this.updateImage();
     },
+    componentWillUnmount: function() {
+        if (this.timerId)
+            clearTimeout(this.timerId);
+    },
     updateImage: function() {
         this.setState({dt: new Date().getTime()});
-        setTimeout(this.updateImage, 2000);
+        this.timerId = setTimeout(this.updateImage, 2000);
     },
     render: function() {
         return (
