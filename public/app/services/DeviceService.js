@@ -1,7 +1,7 @@
 var ee = require('event-emitter');
 var emitter = ee({});
 
-var socketUrl = "http://localhost:7000";  //TODO: this port number should be based on the server config
+var socketUrl = ":7000";  //TODO: this port number should be based on the server config
 var socket = null;
 
 var state = {
