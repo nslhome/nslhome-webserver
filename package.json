@@ -19,15 +19,14 @@
     "react-router": "^2.0.1",
     "socket.io": "1.3.*",
     "suncalc": "^1.7.0",
-    "wns": "https://github.com/arack99/wns/tarball/master"
-  },
-  "devDependencies": {
+    "wns": "https://github.com/arack99/wns/tarball/master",
+    "webpack": "^1.12.14",
+    "webpack-dev-middleware": "^1.6.1",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
-    "babel-preset-react": "^6.5.0",
-    "browserify": "^12.0.1",
-    "jshint": "^2.8.0",
-    "webpack": "^1.12.14",
-    "webpack-dev-middleware": "^1.6.1"
+    "babel-preset-react": "^6.5.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0"
   }
 }
