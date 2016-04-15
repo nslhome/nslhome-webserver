@@ -30,6 +30,9 @@ var startWebserver = function(config) {
         publicPath: webpackConfig.output.publicPath
     }));
 
+    app.get('/', function(req, res) { res.sendfile(path.resolve(__dirname, 'public', 'index.html')) });
+    app.get('/app.*', function(req, res) { res.sendfile(path.resolve(__dirname, 'public', 'index.html')) });
+
     // socket.io handler
     io.sockets.on('connection', function (socket) {
         console.log("connection: " + socket.id);
@@ -62,7 +65,8 @@ var startWebserver = function(config) {
     // default route
     app.use(function(req, res){
         console.log("404: " + req.url);
-        res.send(404);
+        res.status(404);
+        res.sendfile(path.resolve(__dirname, 'public', '404.html'))
     });
 
     // start webserver

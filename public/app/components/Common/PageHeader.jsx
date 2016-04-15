@@ -1,4 +1,5 @@
 var React = require('react');
+var Link = require('react-router').Link;
 var DeviceService = require('../../services/DeviceService.js');
 
 module.exports = React.createClass({
@@ -34,10 +35,10 @@ module.exports = React.createClass({
                     <a className="brand" href="#"><span className="logo-nsl">nsl</span><span className="logo-home">home</span></a>
 
                     <ul className="nav">
-                        <li className={this.props.selectedPage == 'home' ? 'active' : ''}><a href="/#/">Dashboard</a></li>
-                        <li className={this.props.selectedPage == 'devices' ? 'active' : ''}><a href="/#/devices">Devices</a></li>
-                        <li className={this.props.selectedPage == 'cameras' ? 'active' : ''}><a href="/#/cameras">Cameras</a></li>
-                        <li className={this.props.selectedPage == 'test' ? 'active' : ''}><a href="/#/test">Sandbox</a></li>
+                        <li className={this.props.selectedPage == 'home' ? 'active' : ''}><Link to="/">Dashboard</Link></li>
+                        <li className={this.props.selectedPage == 'devices' ? 'active' : ''}><Link to="/app.devices">Devices</Link></li>
+                        <li className={this.props.selectedPage == 'cameras' ? 'active' : ''}><Link to="/app.cameras">Cameras</Link></li>
+                        {/*<li className={this.props.selectedPage == 'test' ? 'active' : ''}><Link to="/app.test">Test</Link></li>*/}
                     </ul>
 
                     {thermostats}
