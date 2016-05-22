@@ -18,8 +18,8 @@ module.exports = React.createClass({
             switch (x.type) {
                 case "light":
                     var boundClick = me.togglePower.bind(me, x);
-                    return <div key={x.id} className="pane-item" onClick={boundClick}>
-                            <img className="pane-item-icon" src={"img/light-" + (x.powerState ? 'on' : 'off') + ".png"} width="24" />
+                    return <div key={x.id} className="pane-item">
+                            <img className="pane-item-icon" src={"img/light-" + (x.powerState ? 'on' : 'off') + ".png"} width="24" onClick={boundClick} />
                             <span className="pane-item-name">{x.name}</span>
                         </div>;
                 case "binarysensor":

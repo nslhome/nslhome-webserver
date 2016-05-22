@@ -17,7 +17,6 @@ module.exports = React.createClass({
                 return;
             }
         }
-        console.log(pages);
     },
     getTitle: function() {
         switch (this.props.selectedPage) {
