@@ -1,0 +1,14 @@
+{
+  "name": "nslhome",
+  "short_name": "nslhome",
+  "icons": [
+    {
+      "src": "img/logo64.png",
+      "sizes": "64x64"
+    }, {
+      "src": "img/logo128.png",
+      "sizes": "128x128"
+    }
+  ],
+  "display": "standalone"
+}

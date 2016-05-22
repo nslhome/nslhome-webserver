@@ -21,6 +21,10 @@ var controllers = [];
 var startWebserver = function(config) {
     logger.info('Webserver Starting');
 
+    app.get('/manifest.json', function(req, res) { console.log("req manifest"); res.sendfile(path.resolve(__dirname, 'public', 'manifest.json')) });
+    app.get('/img/logo64.png', function(req, res) { console.log("req logo 64"); res.sendfile(path.resolve(__dirname, 'public', 'img', 'logo64.png')) });
+    app.get('/img/logo128.png', function(req, res) { console.log("req logo 128"); res.sendfile(path.resolve(__dirname, 'public', 'img', 'logo128.png')) });
+
     app.use(express.basicAuth(config.adminUsername, config.adminPassword));
     app.use(express.bodyParser());
     app.use(express.static(path.join(__dirname, 'public')));
@@ -32,6 +36,8 @@ var startWebserver = function(config) {
 
     app.get('/', function(req, res) { res.sendfile(path.resolve(__dirname, 'public', 'index.html')) });
     app.get('/app.*', function(req, res) { res.sendfile(path.resolve(__dirname, 'public', 'index.html')) });
+    app.get('/m', function(req, res) { res.sendfile(path.resolve(__dirname, 'public', 'index-mobile.html')) });
+    app.get('/m.*', function(req, res) { res.sendfile(path.resolve(__dirname, 'public', 'index-mobile.html')) });
 
     // socket.io handler
     io.sockets.on('connection', function (socket) {

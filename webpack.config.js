@@ -1,8 +1,11 @@
 module.exports = {
-    entry: ['./public/app/index.jsx'],
+    entry: {
+        app:'./public/app/index.jsx',
+        mobile: './public/mobile/index.jsx'
+    },
     output: {
         path: __dirname + '/public/dist',
-        filename: "bundle.js",
+        filename: "[name]_bundle.js",
         publicPath: '/dist/'
     },
     module: {

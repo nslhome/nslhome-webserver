@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="manifest" href="manifest.json">
+        <title>My Home</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+
+            .logo-nsl {
+                color: #b0c7eb;
+            }
+
+            .logo-home {
+                color: #d18b5d;
+            }
+
+            .header {
+                background: black;
+                color: white;
+                padding: 2px;
+                font-size: 16pt;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 99;
+            }
+
+            .logo {
+                display: block;
+                float: left;
+                margin: 8px;
+            }
+
+            .nav {
+                display: block;
+                float: right;
+                margin-right: 30px;
+            }
+
+                .nav img {
+                    vertical-align: middle;
+                    border: 0;
+                    height: 32px;
+                    padding: 4px;
+                }
+
+                .nav a {
+                    color: white;
+                    display: block;
+                    float: left;
+                }
+
+                .nav-title {
+                    width: 100px;
+                    margin: 8px;
+                    display: block;
+                    float: left;
+                    text-align: center;
+                }
+
+
+            .pane {
+                margin-top: 42px;
+                padding: 4px;
+                zwidth: 100%;
+            }
+
+            .pane-item {
+                padding: 6px;
+                border-bottom: 1px solid lightgrey;
+            }
+            .pane-item-icon {
+                vertical-align: middle;
+            }
+            .pane-item-name {
+                padding-left: 8px;
+            }
+
+        </style>
+
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="dist/mobile_bundle.js"></script>
+    </body>
+</html>
